@@ -1,0 +1,64 @@
+1. Gestor de Inventario con "Vistas" de Categoría
+Este proyecto es ideal para practicar el paso de funciones a través de props y el uso de useCallback para optimizar esas funciones que alteran el estado.
+
+La Lógica: Un array de objetos (productos) como estado inicial.
+
+Componentes:
+
+Dashboard: Lista general de productos.
+
+ProductDetail: Vista detallada de un producto usando parámetros de ruta.
+
+CategoryFilter: Filtra la lista principal.
+
+Uso de Hooks:
+
+useState para la lista de productos.
+
+useCallback para la función toggleStock (cambiar si hay o no existencias) que pasarás a los hijos.
+
+useEffect para sincronizar el título de la pestaña con el producto seleccionado.
+
+TypeScript: Define una interface Product y usa un Generic para una función de filtrado reutilizable.
+
+2. Configurador de "Build" de PC (o Personaje de RPG)
+Aquí te enfocarás en la navegación y en cómo mantener un estado "global" o persistente mientras el usuario navega por pasos.
+
+La Lógica: El usuario elige piezas en diferentes rutas y al final ve un resumen.
+
+Componentes:
+
+PartSelector: Un componente genérico que recibe una lista de opciones por props.
+
+Summary: Muestra las selecciones finales.
+
+NavBar: Para moverte entre "CPU", "GPU" y "Resumen".
+
+Uso de Hooks:
+
+useCallback para actualizar la pieza seleccionada sin disparar re-renders innecesarios en componentes hermanos.
+
+React Router (useParams o useNavigate) para saltar al siguiente paso automáticamente al elegir una opción.
+
+TypeScript: Uso de Enums o Literal Types para las categorías de piezas y tipos estrictos para las props.
+
+3. Quiz de Conceptos Técnicos (Mini-App de Examen)
+Este es perfecto para ver cómo useEffect puede manejar lógica de "limpieza" o temporizadores simples sin depender de una base de datos.
+
+La Lógica: Un set de preguntas estáticas. El usuario responde y avanza.
+
+Componentes:
+
+QuestionCard: Muestra la pregunta actual.
+
+Timer: Un pequeño contador que se reinicia con cada pregunta.
+
+Results: Pantalla final con el score.
+
+Uso de Hooks:
+
+useEffect: Para manejar un setInterval en el Timer (recuerda el cleanup function para evitar memory leaks).
+
+useState: Para el índice de la pregunta actual y los aciertos.
+
+TypeScript: Interfaces para la estructura de la Question y tipos para los eventos de los botones.
