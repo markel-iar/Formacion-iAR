@@ -17,11 +17,9 @@ const INITIAL_STATE: Producto[] = [
 ];
 
 function App() {
-  // useState: Manejo de la lista
+  
   const [productos, setProductos] = useState<Producto[]>(INITIAL_STATE);
 
-  // useCallback: Función memorizada para pasar a los hijos
-  //
   const toggleStock = useCallback((id: number) => {
     setProductos((prevProductos) => 
       prevProductos.map((p) => 
@@ -42,6 +40,11 @@ function App() {
           <Route 
             path="/product/:id" 
             element={<ProductDetail productos={productos} toggleStock={toggleStock} />} 
+          />
+
+          <Route 
+            path="/categoryfilter"
+            element={<div>Página no encontrada</div>}
           />
         </Routes>
       </div>
