@@ -12,7 +12,6 @@ const CategoryFilter: React.FC<FilterProps> = ({ categories, selectedCategory, o
     <div style={{ marginBottom: '20px', padding: '10px', borderBottom: '1px solid #ddd' }}>
         <strong>Filtrar por: </strong>
         
-        
         <button 
         onClick={() => onSelectCategory(null)}
         style={{ 
@@ -24,7 +23,6 @@ const CategoryFilter: React.FC<FilterProps> = ({ categories, selectedCategory, o
         Todas
         </button>
 
-        {/* Botones dinámicos para cada categoría */}
         {categories.map((cat) => (
         <button 
             key={cat} 
