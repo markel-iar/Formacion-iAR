@@ -1,4 +1,3 @@
-// src/data/mockData.ts
 import type { Client } from '../types'
 
 export const dbClients: Client[] = [
