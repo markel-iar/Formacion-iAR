@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ClientsProvider } from './context/ClientsContext'
 import { Layout } from './components/Layout'
@@ -5,7 +6,7 @@ import { Dashboard } from './pages/Dashboard'
 import { ClientsPage } from './pages/ClientsPage'
 import { ClientDetail } from './pages/ClientDetail'
 
-function App() {
+function App(): JSX.Element {
 	return (
 		<ClientsProvider>
 			<BrowserRouter>
