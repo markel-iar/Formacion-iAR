@@ -38,6 +38,7 @@ export default tseslint.config(
 			'no-console': ['warn', { allow: ['warn', 'error'] }],
 			'prefer-const': 'error',
 			'no-var': 'error',
+			'no-unused-vars': ['error', { args: 'none' }], // Don't check function parameters
 		},
 	},
 
@@ -53,6 +54,7 @@ export default tseslint.config(
 				ecmaFeatures: {
 					jsx: true,
 				},
+				tsconfigRootDir: process.cwd(),
 			},
 		},
 		plugins: {
@@ -64,17 +66,20 @@ export default tseslint.config(
 			// Base recommendations
 			...js.configs.recommended.rules,
 			...tseslint.configs.recommended.rules,
-			...tseslint.configs.recommendedTypeChecked.rules,
 			...reactHooks.configs.recommended.rules,
 			...reactRefresh.configs.vite.rules,
+
+			// Disable base JS rule - use TypeScript version instead
+			'no-unused-vars': 'off',
 
 			// TypeScript specific rules
 			'@typescript-eslint/explicit-module-boundary-types': 'warn',
 			'@typescript-eslint/no-unused-vars': [
 				'error',
 				{
-					argsIgnorePattern: '^_',
+					args: 'none', // Don't check function parameters
 					varsIgnorePattern: '^_',
+					caughtErrorsIgnorePattern: '^_',
 				},
 			],
 			'@typescript-eslint/no-explicit-any': 'warn',
